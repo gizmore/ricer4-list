@@ -1,0 +1,28 @@
+en:
+  ricer4:
+    param:
+      page:
+        description: "the page number"
+        
+      position:
+        description: "the item position"
+
+      positions:
+        description: "the item positions"
+        example: "1,2,5-10"
+        err_invalid_range: "Your item positions are not there: %{range}"
+        
+      search_term:
+        description: "a term to search for"
+
+    extender:
+      is_list_trigger:
+        description:
+          one: 'Search or list the %{classname} database. There is %{count} record in the database.'
+          other: 'Search or list the %{classname} database. There are %{count} records in the database.'
+        msg_list_item_page: '%{classname}, page %{page}/%{pages}: %{out}.'
+        err_no_list_items: 'There could be no %{classname} found.'
+        err_not_found: 'There is no such %{classname}.'
+        
+      is_search_trigger:
+        err_ambigious: "There are multiple %{classname} that would match your search term."
