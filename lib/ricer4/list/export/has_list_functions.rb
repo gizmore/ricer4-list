@@ -131,7 +131,11 @@ module Ricer4::Extend::HasListFunctions
       def total_pages(relation)
         ((relation.length - 1) / list_per_page) + 1
       end
-
+      
+      def total_items(relation)
+        relation.count
+      end
+      
       def execute_show_items(relation, page)
         # Load search result
         items = page_relation(relation, page)
@@ -154,6 +158,7 @@ module Ricer4::Extend::HasListFunctions
             classname: search_class_name,
             page: page,
             pages: total_pages(relation),
+            items: total_items(relation),
             out: out.join(', ')
         end
       end
